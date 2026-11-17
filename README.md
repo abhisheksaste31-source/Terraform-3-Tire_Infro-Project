@@ -276,6 +276,6 @@ Your support motivates me to build and share more Cloud & DevOps projects!
 
 ---
 
-\<p align="center">   \<b>🚀 Learn • Build • Automate • Deploy\</b> \</p>
+<p align="center">   <b>🚀 Learn • Build • Automate • Deploy</b> </p>
 
-\<p align="center">   Made with ❤️ and Terraform \</p>
+<p align="center">   Made with ❤️ and Terraform </p>
