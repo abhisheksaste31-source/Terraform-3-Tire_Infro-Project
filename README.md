@@ -1,15 +1,15 @@
 # 🚀 AWS 3-Tier Architecture using Terraform
 
-\<p align="center">
-&#x20; \<img src="[https://img.shields.io/badge/AWS-Cloud%20Infrastructure-orange?style=for-the-badge&logo=amazonaws&logoColor=white](https://img.shields.io/badge/AWS-Cloud%20Infrastructure-orange?style=for-the-badge\&logo=amazonaws\&logoColor=white)" />
-&#x20; \<img src="[https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-7B42BC?style=for-the-badge&logo=terraform&logoColor=white](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-7B42BC?style=for-the-badge\&logo=terraform\&logoColor=white)" />
-&#x20; \<img src="[https://img.shields.io/badge/Architecture-3--Tier-blue?style=for-the-badge](https://img.shields.io/badge/Architecture-3--Tier-blue?style=for-the-badge)" />
-&#x20; \<img src="[https://img.shields.io/badge/Region-ap--south--1-yellow?style=for-the-badge](https://img.shields.io/badge/Region-ap--south--1-yellow?style=for-the-badge)" />
-\</p>
+<p align="center">
+&#x20; <img src="[https://img.shields.io/badge/AWS-Cloud%20Infrastructure-orange?style=for-the-badge&logo=amazonaws&logoColor=white](https://img.shields.io/badge/AWS-Cloud%20Infrastructure-orange?style=for-the-badge\&logo=amazonaws\&logoColor=white)" >
+&#x20; <img src="[https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-7B42BC?style=for-the-badge&logo=terraform&logoColor=white](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-7B42BC?style=for-the-badge\&logo=terraform\&logoColor=white)" >
+&#x20; <img src="[https://img.shields.io/badge/Architecture-3--Tier-blue?style=for-the-badge](https://img.shields.io/badge/Architecture-3--Tier-blue?style=for-the-badge)" >
+&#x20; <img src="[https://img.shields.io/badge/Region-ap--south--1-yellow?style=for-the-badge](https://img.shields.io/badge/Region-ap--south--1-yellow?style=for-the-badge)" >
+</p>
 
-\<p align="center">
-&#x20; \<b>🏗️ Building Scalable, Highly Available & Secure AWS Infrastructure with Terraform Modules\</b>
-\</p>
+<p align="center">
+&#x20; <b>🏗️ Building Scalable, Highly Available & Secure AWS Infrastructure with Terraform Modules</b>
+</p>
 
 ---
 
