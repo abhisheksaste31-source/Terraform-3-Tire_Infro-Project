@@ -9,3 +9,8 @@ variable "max_size" {}
 variable "sg_ids" { type = list(string) }
 variable "alb_sg_id" {}
 variable "user_data" { default = "#!/bin/bash\nyum install -y httpd\nsystemctl start httpd\n" }
+variable "internal" {}
+variable "load_balancer_type" {}
+variable "port" {}
+variable "protocol" {}
+

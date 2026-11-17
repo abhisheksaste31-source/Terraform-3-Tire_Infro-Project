@@ -1,16 +1,16 @@
 resource "aws_launch_template" "web" {
-  name_prefix   = "web-"
-  image_id      = var.ami_id
-  instance_type = var.instance_type
+  name_prefix            = "web-"
+  image_id               = var.ami_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = var.sg_ids
-  user_data     = base64encode(var.user_data)
+  user_data              = base64encode(var.user_data)
 }
 
 resource "aws_autoscaling_group" "web" {
-  desired_capacity     = var.desired_capacity
-  min_size             = var.min_size
-  max_size             = var.max_size
-  vpc_zone_identifier  = var.subnets
+  desired_capacity    = var.desired_capacity
+  min_size            = var.min_size
+  max_size            = var.max_size
+  vpc_zone_identifier = var.subnets
   launch_template {
     id      = aws_launch_template.web.id
     version = "$Latest"
@@ -23,15 +23,15 @@ resource "aws_autoscaling_group" "web" {
 }
 
 resource "aws_lb" "web" {
-  internal           = false
-  load_balancer_type = "application"
+  internal           = var.internal
+  load_balancer_type = var.load_balancer_type
   subnets            = var.alb_subnets
   security_groups    = [var.alb_sg_id]
 }
 
 resource "aws_lb_target_group" "web" {
-  port     = 80
-  protocol = "HTTP"
+  port     = var.port
+  protocol = var.protocol
   vpc_id   = var.vpc_id
   health_check {
     path = "/"
@@ -40,8 +40,8 @@ resource "aws_lb_target_group" "web" {
 
 resource "aws_lb_listener" "web" {
   load_balancer_arn = aws_lb.web.arn
-  port              = "80"
-  protocol          = "HTTP"
+  port              = var.port
+  protocol          = var.protocol
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.web.arn
@@ -50,9 +50,6 @@ resource "aws_lb_listener" "web" {
 
 resource "aws_autoscaling_attachment" "web_tg" {
   autoscaling_group_name = aws_autoscaling_group.web.name
-  lb_target_group_arn   = aws_lb_target_group.web.arn
+  lb_target_group_arn    = aws_lb_target_group.web.arn
 }
 
-output "alb_dns" {
-  value = aws_lb.web.dns_name
-}

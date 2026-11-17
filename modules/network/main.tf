@@ -1,5 +1,5 @@
 resource "aws_vpc" "this" {
-  cidr_block = var.vpc_cidr
+  cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
 }
@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "this" {
 # Security Groups for each tier (simplified)
 resource "aws_security_group" "web" {
   vpc_id = aws_vpc.this.id
-ingress {
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -47,7 +47,7 @@ ingress {
 
 resource "aws_security_group" "web_alb" {
   vpc_id = aws_vpc.this.id
-ingress {
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -68,10 +68,10 @@ ingress {
 
 resource "aws_security_group" "app" {
   vpc_id = aws_vpc.this.id
-ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
+  ingress {
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
     security_groups = [aws_security_group.web.id]
   }
 
@@ -90,10 +90,10 @@ ingress {
 
 resource "aws_security_group" "db" {
   vpc_id = aws_vpc.this.id
-ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
+  ingress {
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
     security_groups = [aws_security_group.app.id]
   }
 
@@ -111,11 +111,3 @@ ingress {
 
 }
 
-output "vpc_id"             { value = aws_vpc.this.id }
-output "public_subnets"     { value = aws_subnet.public[*].id }
-output "private_subnets"    { value = aws_subnet.private[*].id }
-output "web_sg_id"          { value = aws_security_group.web.id }
-output "web_alb_sg_id"      { value = aws_security_group.web_alb.id }
-output "app_sg_id"          { value = aws_security_group.app.id }
-output "db_sg_id"           { value = aws_security_group.db.id }
-output "private_db_subnets" { value = aws_subnet.private[*].id }
